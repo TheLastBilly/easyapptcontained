@@ -14,7 +14,7 @@ services:
             - ea_db:/var/lib/mysql
     
     app:
-        build: .
+        #build: .
         image: thelastbilly/easyapptcontained
         volumes: 
             - ea_data:/easyappointments
