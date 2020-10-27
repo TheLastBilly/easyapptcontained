@@ -1,0 +1,28 @@
+version: '3'
+
+volumes: 
+    ea_db:
+    ea_data:
+
+services:
+    db:
+        image: mysql:5.7
+        container_name: easyappointments-database
+        env_file:
+            - variables.env
+        volumes:
+            - ea_db:/var/lib/postgresql/data
+    
+    app:
+        build: .
+        image: thelastbilly/easyapptcontained
+        volumes: 
+            - ./data:/easyappointments
+            - ./certs:/certs
+            - ./settings.csr:/settings.csr
+        links:
+            - db
+        env_file:
+            - variables.env
+        ports:
+            - 8000:443
