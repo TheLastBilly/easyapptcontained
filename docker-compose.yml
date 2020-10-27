@@ -6,6 +6,7 @@ volumes:
 
 services:
     db:
+        restart: always
         image: mariadb
         container_name: easyappointments-database
         env_file:
@@ -14,6 +15,7 @@ services:
             - ea_db:/var/lib/mysql
     
     app:
+        restart: always
         #build: .
         image: thelastbilly/easyapptcontained
         volumes: 
