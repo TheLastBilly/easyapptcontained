@@ -1,19 +1,23 @@
 version: '3'
 
+volumes: 
+    ea_db:
+    ea_data:
+
 services:
     db:
-        image: mysql
+        image: mariadb
         container_name: easyappointments-database
         env_file:
             - variables.env
         volumes:
-            - ./db:/var/lib/mysql
+            - ea_db:/var/lib/mysql
     
     app:
         build: .
         image: thelastbilly/easyapptcontained
         volumes: 
-            - ./data:/easyappointments
+            - ea_data:/easyappointments
             - ./certs:/certs
             - ./settings.csr:/settings.csr
         links:
