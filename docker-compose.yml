@@ -1,17 +1,13 @@
 version: '3'
 
-volumes: 
-    ea_db:
-    ea_data:
-
 services:
     db:
-        image: mysql:5.7
+        image: mysql
         container_name: easyappointments-database
         env_file:
             - variables.env
         volumes:
-            - ea_db:/var/lib/postgresql/data
+            - ./db:/var/lib/mysql
     
     app:
         build: .

@@ -10,11 +10,11 @@ RUN apt update && apt install -y \
 RUN mkdir /easyappointments
 WORKDIR /easyappointments
 
+RUN apt install php-mysqlnd
+
 COPY ./gen_certs.sh /gen_certs.sh
 COPY ./config.php.template /config.php.template
 COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
 COPY ./entrypoint.sh /entrypoint.sh
-
-RUN apt install php-mysqlnd
 
 CMD /entrypoint.sh

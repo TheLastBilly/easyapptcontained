@@ -15,8 +15,8 @@ class Config {
 
     const DB_HOST       = '$MYSQL_URL';
     const DB_NAME       = '$MYSQL_DATABASE';
-    const DB_USERNAME   = 'root';
-    const DB_PASSWORD   = '$MYSQL_ROOT_PASSWORD';
+    const DB_USERNAME   = '$MYSQL_USER';
+    const DB_PASSWORD   = '$MYSQL_PASSWORD';
 
     // ------------------------------------------------------------------------
     // GOOGLE CALENDAR SYNC

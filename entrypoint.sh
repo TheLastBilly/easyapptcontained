@@ -23,5 +23,6 @@ if [ -f "/certs/recreate" ]; then
     rm /certs/recreate
 fi
 
+npm start &
 /usr/sbin/php-fpm7.4 &
 nginx -g 'daemon off;'
