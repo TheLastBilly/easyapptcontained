@@ -8,7 +8,6 @@ services:
     db:
         restart: always
         image: mariadb
-        container_name: easyappointments-database
         env_file:
             - variables.env
         volumes:
